@@ -1,13 +1,14 @@
 const Pokemons = ({pokemons}) => {
+  
   return ( 
     <div>
-    { pokemons.map((pokemon) => (
-     <div key={pokemon.pokemon.name}>
-     <h2>{pokemon.pokemon.name}
+    {
+     <div>
+     <h2>{pokemons.pokemon.name}
        </h2>
        
      </div>
-     ))}
+}
    
    </div>
 
