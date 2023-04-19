@@ -58,6 +58,7 @@ allAreas(onLocation);
     
 //allAreas(onLocation)
   console.log('onLocation', onLocation);
+  console.log('onePokemon:', onePokemon);
 
   return (
     <div className="App">
@@ -65,7 +66,8 @@ allAreas(onLocation);
         <div>
           
            {onePokemon !== [] && <Pokemons 
-           pokemons={onePokemon}
+           pokeName={JSON.stringify(onePokemon)}
+           
                      
             />
             
