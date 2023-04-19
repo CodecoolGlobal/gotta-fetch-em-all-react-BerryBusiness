@@ -9,7 +9,7 @@ function App() {
 const [locations, setLocations] = useState([]);
 const [clickedLocation, setClickedLocation] = useState(false);
 const [onLocation, setOnLocation] = useState([]);
-const pokemonArray = [];
+let onePokemon = [];
 
   useEffect(() => {
     fetch("https://pokeapi.co/api/v2/location") //fetch all locations
@@ -26,17 +26,22 @@ const pokemonArray = [];
   async function getPokemonArray (oneAreaUrl) {
     const pokemonsRes = await fetch(oneAreaUrl)
     const pokemonArray = await pokemonsRes.json()
+    const encounters = await pokemonArray.pokemon_encounters
     console.log('pokemons', pokemonArray)
+    console.log('encounters', encounters)
+   getOnePokemon(encounters)
   }
   
-  /* async function getOnePokemon (pokemonArray) {
-     pokemonArray[Math.floor(Math.random() * pokemonArray.length)]
-   }
-   
-  const getRandomPoke  = Math.floor(Math.random() * pokemons.length);
+  async function getOnePokemon (encounters) {
+    const onePokemonUrl = await encounters[Math.floor(Math.random() * encounters.length)].pokemon.url
+    const pokemonRes = await fetch(onePokemonUrl)
+    onePokemon= await pokemonRes.json()
+    console.log('onePokemon', onePokemon);
+    return onePokemon;
+  }
+  
   
  
-  const chosenPokemon = pokemons[getRandomPoke] */
   
 
   const onLocationSelected = (location) => {
@@ -52,7 +57,7 @@ allAreas(onLocation)
       { clickedLocation ? (
         <div>
           {
-            <Pokemons pokemons={pokemonArray} 
+            <Pokemons pokemons={onePokemon} 
                      
             />
             
