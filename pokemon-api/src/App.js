@@ -6,17 +6,24 @@ import Pokemons from './components/Pokemons'
 import './App.css';
 
 function App() {
+//const [isLoading, setIsloading] = useState(true);
 const [locations, setLocations] = useState([]);
 const [clickedLocation, setClickedLocation] = useState(false);
 const [onLocation, setOnLocation] = useState([]);
-let onePokemon = [];
+const [onePokemon, setOnePokemon] = useState(null);
+//let singlePokemon;
 
   useEffect(() => {
     fetch("https://pokeapi.co/api/v2/location") //fetch all locations
       .then((res) => res.json())
       .then((data) => setLocations(data.results))
     }, []);
-   
+    
+    console.log('onePoke', onePokemon)
+
+useEffect(() => {
+allAreas(onLocation);
+
   async function allAreas (onLocation){
     const response = await fetch(`${onLocation.url}`)
     const allAreasOnLocation = await response.json();
@@ -35,12 +42,12 @@ let onePokemon = [];
   async function getOnePokemon (encounters) {
     const onePokemonUrl = await encounters[Math.floor(Math.random() * encounters.length)].pokemon.url
     const pokemonRes = await fetch(onePokemonUrl)
-    onePokemon= await pokemonRes.json()
-    console.log('onePokemon', onePokemon);
-    return onePokemon;
+    const singlePoke = await pokemonRes.json()
+    
+    setOnePokemon(singlePoke)
   }
   
-  
+}, [onLocation]);
  
   
 
@@ -49,15 +56,16 @@ let onePokemon = [];
       
     }
     
-allAreas(onLocation)
+//allAreas(onLocation)
   console.log('onLocation', onLocation);
 
   return (
     <div className="App">
       { clickedLocation ? (
         <div>
-          {
-            <Pokemons pokemons={onePokemon} 
+          
+           {onePokemon !== [] && <Pokemons 
+           pokemons={onePokemon}
                      
             />
             
@@ -68,7 +76,8 @@ allAreas(onLocation)
         <div>
           {
             
-            <Locations locations={locations} 
+            <Locations 
+            locations={locations} 
             setClickedLocation={setClickedLocation}
             onLocationSelected={onLocationSelected}
             />
