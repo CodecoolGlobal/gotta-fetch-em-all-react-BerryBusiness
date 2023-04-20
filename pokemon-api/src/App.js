@@ -68,11 +68,11 @@ allAreas(onLocation);
         <div>
           
            {onePokemon !== [] && <Pokemons 
-           pokeName={JSON.stringify(onePokemon)}
+           pokeName={onePokemon}
            
                      
             />
-            
+
             
           }
         </div>
