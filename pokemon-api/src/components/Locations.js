@@ -1,6 +1,4 @@
 const Locations = ({locations, setClickedLocation, onLocationSelected}) => {
-//const locationCollection = JSON.parse(locations)
-
 
   return (
     <div class='Location' >
