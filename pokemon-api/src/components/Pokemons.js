@@ -7,7 +7,7 @@ console.log('parsed', pokemon)
   
   return <> {
    
-  pokemon ? <div class='pokemonDisp'>
+  pokemon ? <div class='pokemonDisp' >
     
     
       <h2>{pokemon.name}</h2>

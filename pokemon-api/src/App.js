@@ -73,6 +73,7 @@ allAreas(onLocation);
                      
             />
             
+            
           }
         </div>
       ) : (
@@ -81,7 +82,7 @@ allAreas(onLocation);
           {
             
             <Locations 
-            locations={locations} 
+            locations={locations}
             setClickedLocation={setClickedLocation}
             onLocationSelected={onLocationSelected}
             />

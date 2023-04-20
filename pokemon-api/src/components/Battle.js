@@ -1,4 +1,4 @@
-const Battle = () => {
+const Battle = ({}) => {
   return ( 
 <div></div>
    );

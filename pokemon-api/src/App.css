@@ -62,7 +62,7 @@ img{
     margin: 10px;
 }
 #locationContainer {
-  background-color: rgba(255, 0, 0, 0.984);
+  background-color: rgba(255, 81, 81, 0.984);
   border-radius: 15px;
     margin: 20px;
     padding: 8px;
@@ -77,7 +77,8 @@ img{
   margin: 10px;
 }
 .locationButton {
-  height: 20px;
-  padding: 4px;
+  height: 30px;
+  padding: 5px;
   border-radius: 5px;
+  text-align: center;
 }
