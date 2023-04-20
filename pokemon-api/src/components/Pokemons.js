@@ -7,11 +7,11 @@ console.log('parsed', pokemon)
   
   return <> {
    
-  pokemon ? <div>
+  pokemon ? <div class='pokemonDisp'>
     
     
       <h2>{pokemon.name}</h2>
-      <img src={pokemon.sprites.front_default} alt={'pokemon'}/>
+      <img style={{imageRendering: "pixelated"}} src={pokemon.sprites.front_default} alt={'pokemon'}/>
       <h3>{pokemon.stats.map((stat) => {
         return <>
         <div>{stat.base_stat}</div>
