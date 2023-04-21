@@ -82,3 +82,44 @@ img{
   border-radius: 5px;
   text-align: center;
 }
+#battlePokeDiv{
+  display: flex;
+  flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+}
+#attackButton{
+  background-color: red;
+  color: white;
+  font-weight: 600;
+  font-size: 28px;
+  height: 50px;
+  padding: 5px;
+  border-radius: 5px;
+  text-align: center;
+}
+#chosenPokemon{
+  margin: 30px;
+}
+h1{
+  height: 70px;
+  padding: 10px;
+  width: 50%;
+  background-color: yellow;
+ 
+}
+.battle{
+  display: flex;
+  flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0px;
+  background-color: antiquewhite;
+}
+.hp{
+  font-size: 28;
+  font-weight: 400;
+  
+}

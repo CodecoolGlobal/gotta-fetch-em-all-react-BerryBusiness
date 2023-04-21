@@ -69,12 +69,11 @@ allAreas(onLocation);
           
            {onePokemon !== [] && <Pokemons 
            pokeName={onePokemon}
-           
-                     
             />
 
-            
           }
+          
+          
         </div>
       ) : (
 
