@@ -69,6 +69,7 @@ allAreas(onLocation);
           
            {onePokemon !== [] && <Pokemons 
            pokeName={onePokemon}
+           setClickedLocation={setClickedLocation}
             />
 
           }

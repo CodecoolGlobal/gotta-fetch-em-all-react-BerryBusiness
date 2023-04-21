@@ -7,7 +7,7 @@ const usersPokemon = [
   "https://pokeapi.co/api/v2/pokemon/poliwhirl"
 ]
 
-const Pokemons = ({ pokeName }) => {
+const Pokemons = ({ pokeName, setClickedLocation }) => {
   const [clickedpokemon, setClickedpokemon] = useState(false);
   const [startingpokemon, setStartingPokemon] = useState([]);
   const[choosenPokemon, setChoosenPokemon]=useState([])
@@ -46,7 +46,7 @@ console.log(pokeName)
       </div>
     ) : (
       <div>
-        <Battle enemy = {pokeName}  player = {choosenPokemon}/>
+        <Battle enemy = {pokeName}  player = {choosenPokemon} setClickedLocation={setClickedLocation}/>
       </div>
     )
   );
