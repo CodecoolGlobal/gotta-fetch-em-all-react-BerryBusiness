@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Pokemon } from "./Pokemon";
 
 const Battle = ({ enemy, player, setClickedLocation }) => {
   console.log("enemy", enemy);
@@ -90,13 +91,14 @@ const Battle = ({ enemy, player, setClickedLocation }) => {
           <div id="battlePokeDiv">
             <div class="enemyPokemon"
             >
-              <h2>{enemy.name.charAt(0).toUpperCase() + enemy.name.slice(1)}</h2>
+              <Pokemon pokemon={enemy} />
+              {/* <h2>{enemy.name.charAt(0).toUpperCase() + enemy.name.slice(1)}</h2>
               <img
                 style={{ imageRendering: "pixelated" }}
                 src={enemy.sprites.front_default}
                 alt={"pokemon"}
                 className={animate ? '': 'shrink'}
-              />
+              /> */}
               <p class="hp">Enemy HP: {enemyHpLeft}</p>
             </div>
   
@@ -104,13 +106,14 @@ const Battle = ({ enemy, player, setClickedLocation }) => {
   
             <div class="chosenPokemon"
             >
-              <h2>{player.name.charAt(0).toUpperCase() + player.name.slice(1)}</h2>
+              <Pokemon pokemon={player} />
+              {/* <h2>{player.name.charAt(0).toUpperCase() + player.name.slice(1)}</h2>
               <img
                 style={{ imageRendering: "pixelated" }}
                 src={player.sprites.front_default}
                 alt={"pokemon"}
                 className={animate ? 'shrink' : ''}
-              />
+              /> */}
               
               <p class="hp">Player HP: {playerHpLeft}</p>
             </div>

@@ -3,8 +3,6 @@
 import React, { useState, useEffect } from "react";
 import Locations from './components/Locations'
 import Pokemons from './components/Pokemons'
-import Battle from './components/Battle';
-import OwnPokemons from './components/OwnPokemons';
 import './App.css';
 
 function App() {
@@ -53,7 +51,7 @@ allAreas(onLocation);
  
   
 
-  const onLocationSelected = (location) => {
+  const handleLocationSelected = (location) => {
       setOnLocation(location)
       
     }
@@ -84,7 +82,7 @@ allAreas(onLocation);
             <Locations 
             locations={locations}
             setClickedLocation={setClickedLocation}
-            onLocationSelected={onLocationSelected}
+            onLocationSelected={handleLocationSelected}
             />
           }
         </div>
