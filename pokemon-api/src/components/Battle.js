@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 const Battle = ({ enemy, player, setClickedLocation }) => {
   console.log("enemy", enemy);
   console.log("player", player);
+  
   const [enemyHpLeft, setEnemyHpLeft] = useState([enemy.stats[0].base_stat]);
   const [fainted, setFainted] = useState(false);
   const [playerHpLeft, setPlayerHpLeft] = useState([player.stats[0].base_stat]);
@@ -26,7 +27,7 @@ const Battle = ({ enemy, player, setClickedLocation }) => {
       return "Game Over!";
     } else {
       let playerName = `${player.name.charAt(0).toUpperCase() + player.name.slice(1)}'s turn`
-      let enemyName = `${enemy.name.charAt(0).toUpperCase() + enemy.name.slice(1)}' turn`
+      let enemyName = `${enemy.name.charAt(0).toUpperCase() + enemy.name.slice(1)}'s turn`
       let message = `${turn ? enemyName : playerName}`;
       return message;
     }
@@ -77,63 +78,68 @@ const Battle = ({ enemy, player, setClickedLocation }) => {
     setTurnMessage(message);
   }
 
-  return (
-    <div>
-      <div class="battle">
-        <h1>The battle begins!</h1>
+  if ( enemy === null || player === null){
+   return <div>Loading</div>
+  } else {
 
-        <div id="battlePokeDiv">
-          <div class="enemyPokemon"
-          >
-            <h2>{enemy.name.charAt(0).toUpperCase() + enemy.name.slice(1)}</h2>
-            <img
-              style={{ imageRendering: "pixelated" }}
-              src={enemy.sprites.front_default}
-              alt={"pokemon"}
-              className={animate ? '': 'shrink'}
-            />
-            <p class="hp">Enemy HP: {enemyHpLeft}</p>
+    return (
+      <div>
+        <div class="battle">
+          <h1 id='begins'>The battle begins!</h1>
+  
+          <div id="battlePokeDiv">
+            <div class="enemyPokemon"
+            >
+              <h2>{enemy.name.charAt(0).toUpperCase() + enemy.name.slice(1)}</h2>
+              <img
+                style={{ imageRendering: "pixelated" }}
+                src={enemy.sprites.front_default}
+                alt={"pokemon"}
+                className={animate ? '': 'shrink'}
+              />
+              <p class="hp">Enemy HP: {enemyHpLeft}</p>
+            </div>
+  
+            <div>VS</div>
+  
+            <div class="chosenPokemon"
+            >
+              <h2>{player.name.charAt(0).toUpperCase() + player.name.slice(1)}</h2>
+              <img
+                style={{ imageRendering: "pixelated" }}
+                src={player.sprites.front_default}
+                alt={"pokemon"}
+                className={animate ? 'shrink' : ''}
+              />
+              
+              <p class="hp">Player HP: {playerHpLeft}</p>
+            </div>
           </div>
-
-          <div>VS</div>
-
-          <div class="chosenPokemon"
-          >
-            <h2>{player.name.charAt(0).toUpperCase() + player.name.slice(1)}</h2>
-            <img
-              style={{ imageRendering: "pixelated" }}
-              src={player.sprites.front_default}
-              alt={"pokemon"}
-              className={animate ? 'shrink' : ''}
-            />
+  
+          <h2>{happenings()}</h2>
+          <div>
+            <button
+              id="attackButton"
+              onClick={handleAttackClick}
+              
+            >
+              Attack!
+            </button>
             
-            <p class="hp">Player HP: {playerHpLeft}</p>
+            
+            <p>{turnMessage ? turnMessage : null}</p>
           </div>
+  
+          {/* <div>
+            <button id='again'
+            onClick={setClickedLocation(false)}>
+              Play again
+            </button>
+          </div> */}
         </div>
-
-        <h2>{happenings()}</h2>
-        <div>
-          <button
-            id="attackButton"
-            onClick={handleAttackClick}
-            
-          >
-            Attack!
-          </button>
-          
-          
-          <p>{turnMessage ? turnMessage : null}</p>
-        </div>
-
-        {/* <div>
-          <button id='again'
-          onClick={setClickedLocation(false)}>
-            Play again
-          </button>
-        </div> */}
       </div>
-    </div>
-  );
+    );
+  }
 };
 
 export default Battle;
