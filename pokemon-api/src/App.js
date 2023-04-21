@@ -49,12 +49,12 @@ function App() {
 
 
 
-  const onLocationSelected = (location) => {
-    setOnLocation(location)
-
-  }
-
-  //allAreas(onLocation)
+  const handleLocationSelected = (location) => {
+      setOnLocation(location)
+      
+    }
+    
+//allAreas(onLocation)
   console.log('onLocation', onLocation);
   console.log('onePokemon:', onePokemon);
 
@@ -62,25 +62,25 @@ function App() {
     <div className="App">
       {clickedLocation ? (
         <div>
-
-          {onePokemon !== [] && <Pokemons
-            pokeName={onePokemon}
-
-
-          />
-
+          
+           {onePokemon !== [] && <Pokemons 
+           pokeName={onePokemon}
+           setClickedLocation={setClickedLocation}
+            />
 
           }
+          
+          
         </div>
       ) : (
 
         <div>
           {
-
-            <Locations
-              locations={locations}
-              setClickedLocation={setClickedLocation}
-              onLocationSelected={onLocationSelected}
+            
+            <Locations 
+            locations={locations}
+            setClickedLocation={setClickedLocation}
+            onLocationSelected={handleLocationSelected}
             />
           }
         </div>

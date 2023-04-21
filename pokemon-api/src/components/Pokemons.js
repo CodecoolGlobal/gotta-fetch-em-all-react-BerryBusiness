@@ -1,5 +1,6 @@
 import Battle from "./Battle";
 import React, { useState, useEffect } from 'react';
+import { Pokemon } from "./Pokemon";
 
 
 const usersPokemon = [
@@ -20,6 +21,11 @@ const Pokemons = ({ pokeName }) => {
     Promise.all(promises).then(data => setStartingPokemon(data))
   }, []);
 
+  const handlePokemonChosen = (userPokemon) => {
+    setChoosenPokemon(userPokemon);
+    setClickedpokemon(true);
+  }
+
   console.log(pokeName)
   return (
     !clickedpokemon && pokeName !== null ? (
@@ -33,23 +39,18 @@ const Pokemons = ({ pokeName }) => {
         </div>
         <div className="ownedPokemons">
           <div><h1><b>Choose your Pokemon!</b></h1></div>
-          {startingpokemon.map((pokemon, index) => (
-            <div id={index} key={pokemon.name}>
-              <h2>{pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1)}</h2>
-              <img style={{ imageRendering: "pixelated" }} src={pokemon.sprites.front_default} alt={'ownedPokemon'} />
-              <h2>Base Experience: {pokemon.base_experience}</h2>
-              <div className="outer">
-                <button className="poke-ball" onClick={() => { setChoosenPokemon(pokemon) ;setClickedpokemon(true) }}><b>I choose you !!!</b></button>
-              </div>
-            </div>
-          ))}
+          {startingpokemon.map((pokemon) => {
+            return (<Pokemon pokemon={pokemon} onPokemonChosen={handlePokemonChosen}/>);
+          })}
         </div>
 
       </div>
-    ) : (
+    ) : clickedpokemon === true && choosenPokemon !== null ? (
       <div>
-        <Battle enemyPokemon={pokeName} choosenPokemon={choosenPokemon} />
+        <Battle enemy={pokeName} player={choosenPokemon} />
       </div>
+    ) : (
+      <div>nothing</div>
     )
   );
 

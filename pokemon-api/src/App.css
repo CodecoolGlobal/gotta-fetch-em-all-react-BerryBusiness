@@ -147,3 +147,108 @@ body {
   border-radius: 50%;
   border-right: 20px solid rgba(0, 0, 0, 0.2);
 }
+#battlePokeDiv{
+  display: flex;
+  flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+}
+#attackButton{
+  background-color: red;
+  color: white;
+  font-weight: 600;
+  font-size: 28px;
+  height: 50px;
+  padding: 5px;
+  border-radius: 5px;
+  text-align: center;
+  color: #fffcfc;
+  font-size: 20px;
+  font-weight: bold;
+}
+.outer {
+  display: block;
+  position: relative;
+  height: 100px;
+  width: 200px;
+  padding-top: 40%;
+}
+.outer .poke-ball{
+  display: block;
+  position: absolute;
+  top: 0;
+  right:0;
+  left: 0;
+  bottom: 0;
+  border-radius: 50%;
+  border: 10px solid #000;
+  background: linear-gradient(to top, #fff 35%, #000 35.5%, #000 57%, #ff1b1b 53.5%);
+}
+
+.outer .poke-ball::after{
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  border-radius: 50%;
+  border-right: 20px solid rgba(0, 0, 0, 0.2);
+}
+#chosenPokemon{
+  margin: 30px;
+}
+#begins{
+  height: 50px;
+  padding: 10px;
+  width: 50%;
+  background-color: yellow;
+ 
+}
+.battle{
+  display: flex;
+  flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0px;
+  background-color: antiquewhite;
+}
+.hp{
+  font-size: 48;
+  font-weight: 500;
+  color: darkblue;
+
+}
+.shrink {
+  transform: scale(0.6);
+}
+#chosenPokemon{
+  margin: 30px;
+}
+#begins{
+  height: 50px;
+  padding: 10px;
+  width: 50%;
+  background-color: yellow;
+ 
+}
+.battle{
+  display: flex;
+  flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0px;
+  background-color: antiquewhite;
+}
+.hp{
+  font-size: 48;
+  font-weight: 500;
+  color: darkblue;
+
+}
+.shrink {
+  transform: scale(0.6);
+}
